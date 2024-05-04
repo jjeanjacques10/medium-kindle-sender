@@ -17,10 +17,26 @@ app.get('/', (req, res) => {
 });
 
 app.post('/download', async (req, res) => {
-    const { url } = req.query
-    const fileName = await generateEpub(url);
-    res.download(join(__dirname, '..', 'articles', `${fileName}.epub`));	
+    try {
+        const { url } = req.query
+        if (!isValidUrl(url)) {
+            throw new Error('Invalid URL. Please enter a valid URL.');
+        }
+        const fileName = await generateEpub(url);
+        res.download(join(__dirname, '..', 'articles', `${fileName}.epub`));
+    } catch (error) {
+        res.status(500).send('Failed to download the file. Please try again later. Error: ' + error.message);
+    }
 });
+
+function isValidUrl(url) {
+    try {
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

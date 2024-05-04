@@ -1,10 +1,23 @@
-const botaoEnviar = document.querySelector('#download-button');
+const sendButton = document.querySelector('#download-button');
 const loadingDiv = document.querySelector('.loading');
 const errorDiv = document.querySelector('.error');
 const successDiv = document.querySelector('.success');
 
-botaoEnviar.addEventListener('click', async (event) => {
+function disableButton() {
+    sendButton.disabled = true;
+    sendButton.style.cursor = 'not-allowed';
+    sendButton.style.backgroundColor = '#ccc';
+}
+
+function enableButton() {
+    sendButton.disabled = false;
+    sendButton.style.cursor = 'pointer';
+    sendButton.style.backgroundColor = '#4caf50';
+}
+
+sendButton.addEventListener('click', async (event) => {
     event.preventDefault();
+    disableButton();
     const url = document.querySelector('#article-url').value;
 
     try {
@@ -42,8 +55,9 @@ botaoEnviar.addEventListener('click', async (event) => {
     } catch (error) {
         errorDiv.style.display = 'block'; // show error div
         successDiv.style.display = 'none'; // hide success div
-        alert("Failed to download the file. Please try again later. Error: " + error.message);
+        errorDiv.textContent = error.message;
     } finally {
+        enableButton();
         loadingDiv.style.display = 'none'; // hide loading div
     }
 });

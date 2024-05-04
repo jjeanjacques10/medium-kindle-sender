@@ -38,6 +38,10 @@ body {
     margin: 20px 100px 20px 100px;
 }
 
+input.hint {
+    color: grey;
+}
+
 /* Header styles */
 h1 {
     font-size: 2em;
@@ -150,6 +154,10 @@ footer {
 .success {
     display: none;
     text-align: center;
+}
+
+.loading img {
+    width: 80px;
 }
 
 .success,

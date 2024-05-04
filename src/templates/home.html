@@ -24,7 +24,9 @@
 
         <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" disabled>
+            <input type="email" id="email" name="email" class="hint" value="Ex: dinosaur@kindle.com"
+                onfocus="if (this.className=='hint') { this.className = ''; this.value = ''; }"
+                onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Ex: dinosaur@kindle.com'; }" disabled>
             <span>Direct sending will be available in the future. For now, you can only download the converted
                 file.</span>
         </div>
