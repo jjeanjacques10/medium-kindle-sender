@@ -11,58 +11,86 @@
 </head>
 
 <body>
-    <h1>Article Kindle Converter</h1>
+    <div class="language-toggle" id="toggle-language">
+        <i class="fas fa-globe"></i>
+        <span class="language">EN</span>
+    </div>
+
+    <h1 class="english">Article Kindle Converter</h1>
+    <h1 class="portuguese" style="display: none;">Conversor de Artigos para Kindle</h1>
 
     <img src="/static/img/ArticleKindleConverter.png" alt="Kindle Logo" width="200" height="300">
-    <p>This is a simple script to convert Medium articles to Kindle format (epub).</p>
+    <p class="english">This is a simple script to convert Medium articles to Kindle format (epub).</p>
+    <p class="portuguese" style="display: none;">Este é um script simples para converter artigos do Medium para o
+        formato Kindle (epub).</p>
 
     <div id="form">
         <div>
-            <label for="article-url">Article URL:</label>
+            <label for="article-url" class="english">Article URL:</label>
+            <label for="article-url" class="portuguese" style="display: none;">URL do Artigo:</label>
             <input type="text" id="article-url" name="article-url">
         </div>
 
         <div>
-            <label for="email">Email:</label>
+            <label for="email" class="english">Email:</label>
+            <label for="email" class="portuguese" style="display: none;">E-mail:</label>
             <input type="email" id="email" name="email" class="hint" value="Ex: dinosaur@kindle.com"
                 onfocus="if (this.className=='hint') { this.className = ''; this.value = ''; }"
-                onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Ex: dinosaur@kindle.com'; }" disabled>
-            <span>Direct sending will be available in the future. For now, you can only download the converted
-                file.</span>
+                onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Ex: dinosaur@kindle.com'; }"
+                disabled>
+            <span class="english">Direct sending will be available in the future. For now, you can only download the
+                converted file.</span>
+            <span class="portuguese" style="display: none;">O envio direto estará disponível no futuro. Por enquanto,
+                você só pode baixar o arquivo convertido.</span>
         </div>
 
-        <button id="download-button">Download epub to Kindle</button>
+        <button id="download-button" class="english">Download epub to Kindle</button>
+        <button id="download-button" class="portuguese" style="display: none;">Baixar epub para Kindle</button>
     </div>
 
     <div class="loading">
         <img src="/static/img/loading.gif" alt="Loading" width="20" height="20">
-        <span>Converting article...</span>
+        <span class="english">Converting article...</span>
+        <span class="portuguese" style="display: none;">Convertendo artigo...</span>
     </div>
     <div class="error">
-        <span>There was an error converting the article. Please try again later.</span>
+        <span class="english">There was an error converting the article. Please try again later.</span>
+        <span class="portuguese" style="display: none;">Ocorreu um erro ao converter o artigo. Por favor, tente
+            novamente mais tarde.</span>
     </div>
     <div class="success">
-        <span>Article converted successfully!</span>
+        <span class="english">Article converted successfully!</span>
+        <span class="portuguese" style="display: none;">Artigo convertido com sucesso!</span>
     </div>
 
     <div class="explain-context" style="text-align: center;">
-        <h2>How to use</h2>
+        <h2 class="english">How to use</h2>
+        <h2 class="portuguese" style="display: none;">Como usar</h2>
         <ol style="list-style-position: inside;">
-            <li>Copy the URL of the article you want to convert</li>
-            <li>Paste the URL in the input field above</li>
-            <li>Click on the "Download epub to Kindle" button</li>
-            <li>Wait for the conversion to finish</li>
-            <li>Download the converted file</li>
+            <li class="english">Copy the URL of the article you want to convert</li>
+            <li class="portuguese" style="display: none;">Copie a URL do artigo que você deseja converter</li>
+            <li class="english">Paste the URL in the input field above</li>
+            <li class="portuguese" style="display: none;">Cole a URL no campo de entrada acima</li>
+            <li class="english">Click on the "Download epub to Kindle" button</li>
+            <li class="portuguese" style="display: none;">Clique no botão "Baixar epub para Kindle"</li>
+            <li class="english">Wait for the conversion to finish</li>
+            <li class="portuguese" style="display: none;">Aguarde a conversão terminar</li>
+            <li class="english">Download the converted file</li>
+            <li class="portuguese" style="display: none;">Baixe o arquivo convertido</li>
         </ol>
 
-        <h2>How to send to Kindle</h2>
+        <h2 class="english">How to send to Kindle</h2>
+        <h2 class="portuguese" style="display: none;">Como enviar para o Kindle</h2>
         <ol style="list-style-position: inside;">
-            <li>Send the epub file to your Kindle email address <br> (Example: dinosaur@kindle.com)</li>
-            <li>Verify your identity by email validation</li>
-            <li>Open your Kindle device and sync the library</li>
+            <li class="english">Send the epub file to your Kindle email address <br> (Example: dinosaur@kindle.com)</li>
+            <li class="portuguese" style="display: none;">Envie o arquivo epub para o seu endereço de e-mail do Kindle
+                <br> (Exemplo: dinossauro@kindle.com)</li>
+            <li class="english">Verify your identity by email validation</li>
+            <li class="portuguese" style="display: none;">Verifique sua identidade por validação por e-mail</li>
+            <li class="english">Open your Kindle device and sync the library</li>
+            <li class="portuguese" style="display: none;">Abra seu dispositivo Kindle e sincronize a biblioteca</li>
         </ol>
     </div>
-
 
     <div class="github-link">
         <a href="https://github.com/jjeanjacques10/medium-kindle-sender"><i class="fab fa-github"></i> Contribute on
@@ -76,7 +104,6 @@
                         class="fab fa-twitter"></i> Twitter</a>
                 <a href="https://github.com/jjeanjacques10" target="_blank" rel="noopener noreferrer"><i
                         class="fab fa-github"></i> GitHub</a>
-
             </div>
             <div class="copyright">
                 &copy; 2024 Article Kindle Converter | Developed by Jean Jacques Barros
@@ -85,6 +112,7 @@
     </footer>
 
     <script src="/static/js/home.js"></script>
+    <script src="/static/js/language.js"></script>
 </body>
 
 </html>

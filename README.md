@@ -15,6 +15,7 @@ Test it at <https://medium-kindle-sender.onrender.com/>.
 - [x] Convert Medium articles to epub
 - [x] Website to convert articles
 - [x] Download the epub file
+- [x] Multilanguage support (PT-BR and EN-US)
 - [ ] Send the epub file by email
 - [ ] Create a CLI
 - [ ] Create a browser extension

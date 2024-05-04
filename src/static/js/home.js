@@ -3,18 +3,6 @@ const loadingDiv = document.querySelector('.loading');
 const errorDiv = document.querySelector('.error');
 const successDiv = document.querySelector('.success');
 
-function disableButton() {
-    sendButton.disabled = true;
-    sendButton.style.cursor = 'not-allowed';
-    sendButton.style.backgroundColor = '#ccc';
-}
-
-function enableButton() {
-    sendButton.disabled = false;
-    sendButton.style.cursor = 'pointer';
-    sendButton.style.backgroundColor = '#4caf50';
-}
-
 sendButton.addEventListener('click', async (event) => {
     event.preventDefault();
     disableButton();
@@ -23,7 +11,6 @@ sendButton.addEventListener('click', async (event) => {
     try {
         loadingDiv.style.display = 'block'; // show loading div
 
-        // return an epub file
         const response = await fetch(`/download?url=${url}`, {
             method: 'POST',
             headers: {
@@ -38,7 +25,6 @@ sendButton.addEventListener('click', async (event) => {
         // get the article file name from the response headers
         const filename = response.headers.get('Content-Disposition').split('filename=')[1];
 
-        // download the file automatically
         const blob = await response.blob();
         const urlBlob = URL.createObjectURL(blob);
         const a = document.createElement('a'); // Create the 'a' element
@@ -61,3 +47,15 @@ sendButton.addEventListener('click', async (event) => {
         loadingDiv.style.display = 'none'; // hide loading div
     }
 });
+
+function disableButton() {
+    sendButton.disabled = true;
+    sendButton.style.cursor = 'not-allowed';
+    sendButton.style.backgroundColor = '#ccc';
+}
+
+function enableButton() {
+    sendButton.disabled = false;
+    sendButton.style.cursor = 'pointer';
+    sendButton.style.backgroundColor = '#4caf50';
+}

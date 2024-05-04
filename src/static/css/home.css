@@ -183,3 +183,40 @@ footer {
     margin-top: 5px;
     font-size: 1em; /* Increased font size */
 }
+
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.language-toggle i {
+    font-size: 1.2em;
+    color: #555;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+.language-toggle .language {
+    font-size: 0.9em;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.language-toggle:hover i,
+.language-toggle:hover .language {
+    color: #333;
+}
