@@ -29,7 +29,8 @@ sendButton.addEventListener('click', async (event) => {
         const urlBlob = URL.createObjectURL(blob);
         const a = document.createElement('a'); // Create the 'a' element
         a.href = urlBlob;
-        a.download = filename; // set the article file name
+        a.download = filename.replace(".epub", "");
+
         a.click(); // Call the 'click' function on the 'a' element
         URL.revokeObjectURL(urlBlob);
 
