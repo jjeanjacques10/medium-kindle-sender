@@ -25,21 +25,21 @@ input {
 /* Body styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 /* Form */
 #form {
-    background-color: #f7f7f7;
+    background-color: #222222;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 100px 20px 100px;
 }
 
 input.hint {
-    color: grey;
+    color: rgb(167, 167, 167);
 }
 
 /* Header styles */
@@ -47,6 +47,15 @@ h1 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
+    color: #fd9800;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+li {
+    color: #d3d3d3;
 }
 
 p {
@@ -57,7 +66,7 @@ p {
 img {
     display: block;
     margin: 0 auto;
-    width: 220px;
+    width: 300px;
     /* Increased size */
     height: auto;
     /* Maintain aspect ratio */
@@ -168,20 +177,26 @@ footer {
 }
 
 .error {
-    background-color: #ffe6e6; /* Light red background */
-    border: 1px solid #ff9999; /* Red border */
+    background-color: #ffe6e6;
+    /* Light red background */
+    border: 1px solid #ff9999;
+    /* Red border */
+    color: #ff3333;
 }
 
 .success {
-    background-color: #e6ffe6; /* Light green background */
-    border: 1px solid #99ff99; /* Green border */
+    background-color: #e6ffe6;
+    /* Light green background */
+    border: 1px solid #99ff99;
+    /* Green border */
 }
 
 .error span,
 .success span {
     display: block;
     margin-top: 5px;
-    font-size: 1em; /* Increased font size */
+    font-size: 1em;
+    /* Increased font size */
 }
 
 .language-toggle {
@@ -219,4 +234,18 @@ footer {
 .language-toggle:hover i,
 .language-toggle:hover .language {
     color: #333;
+}
+
+/* Estilo para links */
+a {
+    color: #c9c9c9;
+    /* Defina a cor desejada */
+    text-decoration: none;
+    /* Remova sublinhado padrão */
+}
+
+/* Estilo para links quando hover (passa o mouse sobre) */
+a:hover {
+    color: #fd9800;
+    /* Defina a cor desejada ao passar o mouse */
 }
