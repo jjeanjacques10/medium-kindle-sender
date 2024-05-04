@@ -1,10 +1,15 @@
 const botaoEnviar = document.querySelector('#download-button');
+const loadingDiv = document.querySelector('.loading');
+const errorDiv = document.querySelector('.error');
+const successDiv = document.querySelector('.success');
 
 botaoEnviar.addEventListener('click', async (event) => {
     event.preventDefault();
     const url = document.querySelector('#article-url').value;
 
     try {
+        loadingDiv.style.display = 'block'; // show loading div
+
         // return an epub file
         const response = await fetch(`/download?url=${url}`, {
             method: 'POST',
@@ -31,8 +36,14 @@ botaoEnviar.addEventListener('click', async (event) => {
 
         // clear the input
         document.querySelector('#article-url').value = '';
+
+        successDiv.style.display = 'block'; // show success div
+        errorDiv.style.display = 'none'; // hide error div
     } catch (error) {
-        // Display a pop-up error
+        errorDiv.style.display = 'block'; // show error div
+        successDiv.style.display = 'none'; // hide success div
         alert("Failed to download the file. Please try again later. Error: " + error.message);
+    } finally {
+        loadingDiv.style.display = 'none'; // hide loading div
     }
 });

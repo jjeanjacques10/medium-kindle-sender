@@ -28,7 +28,14 @@ body {
     background-color: #f2f2f2;
     color: #333;
     line-height: 1.6;
+}
+
+/* Form */
+#form {
+    background-color: #f7f7f7;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 100px 20px 100px;
 }
 
 /* Header styles */
@@ -113,7 +120,7 @@ footer {
     padding: 20px;
     text-align: center;
     background-color: #333;
-    position: fixed;
+    margin-top: 30px;
     bottom: 0;
     width: 100%;
 }
@@ -137,4 +144,34 @@ footer {
     margin-top: 10px;
 }
 
+/* Loading, error, success styles */
+.loading,
+.error,
+.success {
+    display: none;
+    text-align: center;
+}
 
+.success,
+.error {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.error {
+    background-color: #ffe6e6; /* Light red background */
+    border: 1px solid #ff9999; /* Red border */
+}
+
+.success {
+    background-color: #e6ffe6; /* Light green background */
+    border: 1px solid #99ff99; /* Green border */
+}
+
+.error span,
+.success span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1em; /* Increased font size */
+}

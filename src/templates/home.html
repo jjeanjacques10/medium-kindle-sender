@@ -16,18 +16,51 @@
     <img src="/static/img/ArticleKindleConverter.png" alt="Kindle Logo" width="200" height="300">
     <p>This is a simple script to convert Medium articles to Kindle format (epub).</p>
 
-    <div>
-        <label for="article-url">Enter Article URL:</label>
-        <input type="text" id="article-url" name="article-url">
+    <div id="form">
+        <div>
+            <label for="article-url">Article URL:</label>
+            <input type="text" id="article-url" name="article-url">
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" disabled>
+            <span>Direct sending will be available in the future. For now, you can only download the converted
+                file.</span>
+        </div>
+
+        <button id="download-button">Download epub to Kindle</button>
     </div>
 
-    <div>
-        <label for="email">Enter Email:</label>
-        <input type="email" id="email" name="email" disabled>
-        <span>Direct sending will be available in the future. For now, you can only download the converted file.</span>
+    <div class="loading">
+        <img src="/static/img/loading.gif" alt="Loading" width="20" height="20">
+        <span>Converting article...</span>
+    </div>
+    <div class="error">
+        <span>There was an error converting the article. Please try again later.</span>
+    </div>
+    <div class="success">
+        <span>Article converted successfully!</span>
     </div>
 
-    <button id="download-button">Download epub to Kindle</button>
+    <div class="explain-context" style="text-align: center;">
+        <h2>How to use</h2>
+        <ol style="list-style-position: inside;">
+            <li>Copy the URL of the article you want to convert</li>
+            <li>Paste the URL in the input field above</li>
+            <li>Click on the "Download epub to Kindle" button</li>
+            <li>Wait for the conversion to finish</li>
+            <li>Download the converted file</li>
+        </ol>
+
+        <h2>How to send to Kindle</h2>
+        <ol style="list-style-position: inside;">
+            <li>Send the epub file to your Kindle email address <br> (Example: dinosaur@kindle.com)</li>
+            <li>Verify your identity by email validation</li>
+            <li>Open your Kindle device and sync the library</li>
+        </ol>
+    </div>
+
 
     <div class="github-link">
         <a href="https://github.com/jjeanjacques10/medium-kindle-sender"><i class="fab fa-github"></i> Contribute on

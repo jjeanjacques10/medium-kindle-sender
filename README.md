@@ -4,6 +4,12 @@ This is a simple script to convert Medium articles to Kindle format (epub).
 
 Test it at <https://medium-kindle-sender.onrender.com/>.
 
+## Built with
+
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Epub-gen lib](https://github.com/cyrilis/epub-gen)
+
 ## Features
 
 - [x] Convert Medium articles to epub
@@ -31,9 +37,9 @@ npm run start
 
 You can see an example of the generated epub file in `articles/` folder.
 
-## Libraries
+## License
 
-- <https://github.com/cyrilis/epub-gen>
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
