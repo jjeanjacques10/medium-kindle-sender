@@ -2,6 +2,7 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { generateEpub } from './articleProcessor.js';
+import { isValidUrl } from './utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -28,15 +29,6 @@ app.post('/download', async (req, res) => {
         res.status(500).send('Failed to download the file. Please try again later. Error: ' + error.message);
     }
 });
-
-function isValidUrl(url) {
-    try {
-        new URL(url);
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

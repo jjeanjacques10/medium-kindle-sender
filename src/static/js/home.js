@@ -19,7 +19,7 @@ sendButton.addEventListener('click', async (event) => {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to download the file. Please try again later.');
+            throw new Error(await response.text());
         }
 
         // get the article file name from the response headers
