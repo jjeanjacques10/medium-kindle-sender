@@ -1,68 +1,27 @@
-const Epub = require("epub-gen");
-var axios = require("axios").default;
-const { JSDOM } = require('jsdom');
+import express from 'express';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { generateEpub } from './articleProcessor.js';
 
-function extractArticleFromHTML(html) {
-    const doc = new JSDOM(html).window.document;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-    doc.querySelectorAll('picture').forEach(e => {
-        e.querySelector('img').src = e.querySelector('source').srcset.split(', ').pop().replace(/ \d+w/, '');
-    });
+const app = express();
+const port = process.env.PORT || 3000;
 
-    doc.querySelectorAll('button').forEach(e => e.remove());
+app.use(express.json());
+app.use('/static', express.static(join(__dirname, 'static'), { extensions: ['css', 'svg', 'js'] }));
 
-    return {
-        data: doc.documentElement.outerHTML,
-        title: doc.querySelector('h1').textContent,
-        author: doc.querySelector('a[data-testid="authorName"]').textContent,
-        cover: doc.querySelector('img').src
-    };
-}
+app.get('/', (req, res) => {
+    res.sendFile(join(__dirname, 'templates', 'home.html'));
+});
 
+app.post('/download', async (req, res) => {
+    const { url } = req.query
+    const fileName = await generateEpub(url);
+    res.download(join(__dirname, '..', 'articles', `${fileName}.epub`));	
+});
 
-async function getArticleContent(url) {
-    return new Promise((resolve, reject) => {
-        axios.get(url)
-            .then((response) => {
-                let data = response.data;
-                let start = data.indexOf('<article>');
-                let end = data.indexOf('</article>');
-                data = data.substring(start, end);
-                resolve({ data });
-            })
-            .catch((error) => {
-                reject(error);
-            });
-    });
-}
-
-function cleanTitle(title) {
-    return title.replace(/[^a-zA-Z ]/g, "").replace(/ /g, "-").toLowerCase();
-}
-
-getArticleContent('https://medium.com/@fengruohang/postgres-is-eating-the-database-world-157c204dcfc4')
-    .then((response) => {
-        if (!response.data) return console.error("No data found");
-
-        const article = extractArticleFromHTML(response.data);
-
-        const option = {
-            title: article.title, // *Required, title of the book.
-            author: article.author, // *Required, name of the author.
-            cover: article.cover, // Url or File path, both ok.
-            content: [
-                {
-                    data: article.data
-                }
-            ]
-        };
-
-        new Epub(option, "./" + cleanTitle(article.title) + ".epub");
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-
-
-
-
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
