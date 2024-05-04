@@ -1,6 +1,11 @@
 import Epub from "epub-gen";
 import axios from "axios";
 import { JSDOM } from 'jsdom';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 async function generateEpub(articleUrl) {
     const response = await getArticleContent(articleUrl)
@@ -20,7 +25,7 @@ async function generateEpub(articleUrl) {
     };
 
     const fileName = cleanTitle(article.title);
-    new Epub(option, `./articles/${fileName}.epub`);
+    new Epub(option, join(__dirname, '..', 'articles', `${fileName}.epub`));
 
     // return epub location to download
     return fileName;
