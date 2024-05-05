@@ -82,6 +82,7 @@ img {
 /* Form styles */
 label {
     display: block;
+    margin-top: 15px;
     margin-bottom: 5px;
 }
 
@@ -238,7 +239,7 @@ footer {
 
 /* Estilo para links */
 a {
-    color: #c9c9c9;
+    color: #ffffff;
     /* Defina a cor desejada */
     text-decoration: none;
     /* Remova sublinhado padrão */
@@ -248,4 +249,54 @@ a {
 a:hover {
     color: #fd9800;
     /* Defina a cor desejada ao passar o mouse */
+}
+
+/* Botões de envio */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+.buttons button {
+    margin: 0 5px; /* Espaçamento entre os botões */
+}
+
+/* Menu de navegação */
+.navbar {
+    background-color: #fff0; /* Background color of the navbar */
+    padding: 10px; /* Padding around the navbar */
+}
+
+.menu-toggle {
+    color: #fff; /* Color of the hamburger icon */
+    font-size: 24px; /* Size of the hamburger icon */
+    cursor: pointer; /* Cursor style for the hamburger icon */
+}
+
+.menu {
+    display: none; /* Initially hide the menu items */
+}
+
+.menu-item {
+    color: #fff; /* Text color of menu items */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Display menu items as block elements */
+    padding: 10px 20px; /* Padding around each menu item */
+    margin: 0; /* Reset margin */
+    border-bottom: 1px solid #666; /* Border between menu items */
+}
+
+.menu-item:last-child {
+    border-bottom: none; /* Remove border from the last menu item */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: block; /* Show the menu items */
+    }
+    .menu-item {
+        display: block; /* Display menu items as block elements */
+        border-bottom: 1px solid #666; /* Border between menu items */
+    }
 }

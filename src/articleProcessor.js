@@ -25,7 +25,7 @@ async function generateEpub(articleUrl) {
     };
 
     const fileName = cleanTitle(article.title);
-    new Epub(option, join(__dirname, '..', 'articles', `${fileName}.epub`));
+    await new Epub(option, join(__dirname, '..', 'articles', `${fileName}.epub`)).promise;
 
     // return epub location to download
     return fileName;

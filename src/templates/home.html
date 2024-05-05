@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medium to Kindle - Automation</title>
+    <link rel="shortcut icon" href="/static/img/ArticleKindleConverter.png">
     <link rel="stylesheet" href="/static/css/home.css">
     <!-- Include Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -16,12 +17,25 @@
         <span class="language">EN</span>
     </div>
 
+    <div class="navbar">
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu">
+            <a href="/" class="menu-item">Home</a>
+            <a href="/how-to-send-to-kindle" class="menu-item english">How to Send to Kindle</a>
+            <a href="/how-to-send-to-kindle" class="menu-item portuguese" style="display: none;">Como Enviar para o Kindle</a>
+        </div>
+    </div>
+
     <h1 class="english">Article Kindle Converter</h1>
     <h1 class="portuguese" style="display: none;">Conversor de Artigos para Kindle</h1>
 
     <img src="/static/img/ArticleKindleConverter.png" alt="Kindle Logo" width="200" height="300">
-    <p class="english">This is a simple script to convert <a href="https://medium.com/@jjeanjacques10" target="_blank">Medium Articles</a> to Kindle format (epub).</p>
-    <p class="portuguese" style="display: none;">Este é um script simples para converter <a href="https://medium.com/@jjeanjacques10" target="_blank">artigos do Medium</a> para o
+    <p class="english">This is a simple script to convert <a href="https://medium.com/@jjeanjacques10"
+            target="_blank">Medium Articles</a> to Kindle format (epub).</p>
+    <p class="portuguese" style="display: none;">Este é um script simples para converter <a
+            href="https://medium.com/@jjeanjacques10" target="_blank">artigos do Medium</a> para o
         formato Kindle (epub).</p>
 
     <div id="form">
@@ -36,16 +50,20 @@
             <label for="email" class="portuguese" style="display: none;">E-mail:</label>
             <input type="email" id="email" name="email" class="hint" value="Ex: dinosaur@kindle.com"
                 onfocus="if (this.className=='hint') { this.className = ''; this.value = ''; }"
-                onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Ex: dinosaur@kindle.com'; }"
-                disabled>
+                onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Ex: dinosaur@kindle.com'; }">
             <span class="english">Direct sending will be available in the future. For now, you can only download the
                 converted file.</span>
             <span class="portuguese" style="display: none;">O envio direto estará disponível no futuro. Por enquanto,
                 você só pode baixar o arquivo convertido.</span>
         </div>
 
-        <button id="download-button" class="english">Download epub to Kindle</button>
-        <button id="download-button" class="portuguese" style="display: none;">Baixar epub para Kindle</button>
+        <div class="buttons">
+            <button id="download-button" class="english">Download Epub</button>
+            <button id="download-button" class="portuguese" style="display: none;">Baixar Epub</button>
+
+            <button id="email-button" class="english">Send to Email</button>
+            <button id="email-button" class="portuguese" style="display: none;" disabled>Enviar para o Email</button>
+        </div>
     </div>
 
     <div class="loading">
@@ -82,9 +100,15 @@
         <h2 class="english">How to send to Kindle</h2>
         <h2 class="portuguese" style="display: none;">Como enviar para o Kindle</h2>
         <ol style="list-style-position: inside;">
+
+            <li class="english">Allow the email from automation on your Kindle following the instructions in this <a
+                    href="/how-to-send-to-kindle">Link</a></li>
+            <li class="portuguese" style="display: none;">Libere o e-mail da automação no seu Kindle seguindo as instruções neste <a
+                    href="/how-to-send-to-kindle">Link</a></li>
             <li class="english">Send the epub file to your Kindle email address <br> (Example: dinosaur@kindle.com)</li>
             <li class="portuguese" style="display: none;">Envie o arquivo epub para o seu endereço de e-mail do Kindle
-                <br> (Exemplo: dinossauro@kindle.com)</li>
+                <br> (Exemplo: dinossauro@kindle.com)
+            </li>
             <li class="english">Verify your identity by email validation</li>
             <li class="portuguese" style="display: none;">Verifique sua identidade por validação por e-mail</li>
             <li class="english">Open your Kindle device and sync the library</li>
@@ -93,7 +117,8 @@
     </div>
 
     <div class="github-link">
-        <a href="https://github.com/jjeanjacques10/medium-kindle-sender"><i class="fab fa-github"></i> Contribute on
+        <a href="https://github.com/jjeanjacques10/medium-kindle-sender" target="_blank"><i class="fab fa-github"></i>
+            Contribute on
             GitHub</a>
     </div>
 
@@ -112,6 +137,7 @@
     </footer>
 
     <script src="/static/js/home.js"></script>
+    <script src="/static/js/menu.js"></script>
     <script src="/static/js/language.js"></script>
 </body>
 
